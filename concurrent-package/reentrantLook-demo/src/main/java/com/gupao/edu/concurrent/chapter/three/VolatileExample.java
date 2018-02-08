@@ -15,11 +15,17 @@ public class VolatileExample {
     volatile boolean flag = false;
     public void writer(){
         a = 1; // 1 普通写
-        flag = true;// 2 volatile写
+        //在volatile写这个前插入StoreStore屏障
+        flag = true;// 2 volatile写 ,
+        //在每个volatile写操作的后面插入一个StoreLoad屏障
     }
 
     public void reader(){
+
         if (flag) {// 3 volatile读
+            //在每个volatile读操作的后面插入一个LoadLoad屏障
+            //在每个volatile读操作的后面插入一个LoadStore屏障
+            System.out.println("in 。。。");
             int i = a;// 4 普通写
         }
     }
@@ -35,8 +41,8 @@ public class VolatileExample {
             @Override
             public void run() {
                 va.writer();
-                System.out.println(va.a);
-                System.out.println(va.flag);
+                System.out.println(Thread.currentThread().getName()+"->"+va.a);
+                System.out.println(Thread.currentThread().getName()+"->"+va.flag);
             }
         });
         A.start();
@@ -44,8 +50,8 @@ public class VolatileExample {
             @Override
             public void run() {
                 va.reader();
-                System.out.println(va.a);
-                System.out.println(va.flag);
+                System.out.println(Thread.currentThread().getName()+"->"+va.a);
+                System.out.println(Thread.currentThread().getName()+"->"+va.flag);
             }
         });
         B.start();
