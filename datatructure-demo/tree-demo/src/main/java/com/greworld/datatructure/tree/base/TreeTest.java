@@ -34,5 +34,6 @@ public class TreeTest {
         order.preOrder(root);
         System.out.println("\n后根遍历：");
         order.postOrder(root);
+
     }
 }
