@@ -1,4 +1,4 @@
-package com.greworld.datatructure.tree.base.define.binarynode;
+package com.greworld.datatructure.tree.binarynode;
 
 /**
  * @author 风骚的GRE

@@ -1,6 +1,6 @@
-package com.greworld.datatructure.tree.base.define;
+package com.greworld.datatructure.tree;
 
-import com.greworld.datatructure.tree.base.define.binarynode.BinaryNode;
+import com.greworld.datatructure.tree.binarynode.BinaryNode;
 
 /**
  * @author 风骚的GRE

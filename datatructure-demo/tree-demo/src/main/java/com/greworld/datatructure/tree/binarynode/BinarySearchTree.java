@@ -1,10 +1,8 @@
-package com.greworld.datatructure.tree.base.define.binarynode;
+package com.greworld.datatructure.tree.binarynode;
 
-import com.greworld.datatructure.tree.base.define.Tree;
-
-import java.util.Queue;
-import java.util.Stack;
-import java.util.concurrent.LinkedBlockingQueue;
+import com.greworld.datatructure.queue.LinkedQueue;
+import com.greworld.datatructure.stack.LinkedStack;
+import com.greworld.datatructure.tree.Tree;
 
 /**
  * @author 风骚的GRE
@@ -119,7 +117,7 @@ public class BinarySearchTree<T extends Comparable> implements Tree<T>{
     public String preOrderTraverse(){
         StringBuffer sb=new StringBuffer();
         //构建用于存放结点的栈
-        Stack<BinaryNode<T>> stack=new Stack<>();
+        LinkedStack<BinaryNode<T>> stack=new LinkedStack<>();
         BinaryNode<T> p=this.root;
         if (p!=null||stack.isEmpty()){
             if (p!=null){
@@ -179,7 +177,7 @@ public class BinarySearchTree<T extends Comparable> implements Tree<T>{
     public String inOrderTraverse(){
         StringBuffer sb = new StringBuffer();
         //构建用于存放结点的栈
-        Stack<BinaryNode<T>> stack = new Stack<>();
+        LinkedStack<BinaryNode<T>> stack = new LinkedStack<>();
         BinaryNode<T> p=this.root;
         if (p!=null||stack.isEmpty()){
             while (p!=null){//把左孩子都入栈,至到左孩子为null
@@ -239,7 +237,7 @@ public class BinarySearchTree<T extends Comparable> implements Tree<T>{
     public String postOrderTraverse(){
         StringBuffer sb=new StringBuffer();
         //构建用于存放结点的栈
-        Stack<BinaryNode<T>> stack=new Stack<>();
+        LinkedStack<BinaryNode<T>> stack=new LinkedStack<>();
         BinaryNode<T> currentNode =this.root;
         BinaryNode<T> prev=this.root;
         while (currentNode!=null||!stack.isEmpty()){
@@ -303,7 +301,7 @@ public class BinarySearchTree<T extends Comparable> implements Tree<T>{
          /**
           * 存放需要遍历的结点,左结点一定优先右节点遍历
           */
-         Queue<BinaryNode<T>> queue=new LinkedBlockingQueue<>();
+         LinkedQueue<BinaryNode<T>> queue=new LinkedQueue<>();
          StringBuffer sb=new StringBuffer();
          BinaryNode<T> p=this.root;
          while (p!=null){

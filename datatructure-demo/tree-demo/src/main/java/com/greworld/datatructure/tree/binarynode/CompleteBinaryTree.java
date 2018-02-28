@@ -1,4 +1,6 @@
-package com.greworld.datatructure.tree.base.define.binarynode;
+package com.greworld.datatructure.tree.binarynode;
+
+import com.greworld.datatructure.queue.LinkedQueue;
 
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingDeque;
@@ -67,7 +69,7 @@ public class CompleteBinaryTree<T extends Comparable> extends BinarySearchTree <
         /**
          * 存放需要遍历的结点,左结点一定优先右节点遍历
          */
-        Queue<BinaryNode<T>> queue=new LinkedBlockingDeque<>();
+        LinkedQueue<BinaryNode<T>> queue=new LinkedQueue<>();
         StringBuffer sb=new StringBuffer();
         BinaryNode<T> p=this.root;
 
